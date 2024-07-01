@@ -1,0 +1,364 @@
+[
+    {
+        "id": "f0bca268d9b1e76d",
+        "type": "tab",
+        "label": "Flux 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7066bac7e4bb6b27",
+        "type": "http request",
+        "z": "f0bca268d9b1e76d",
+        "name": "led on",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.208.69:8080/LED?r=255&g=255&b=255",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 770,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "01c4544b4f9b51d1",
+        "type": "inject",
+        "z": "f0bca268d9b1e76d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "1e63e81d738cc56f"
+            ]
+        ]
+    },
+    {
+        "id": "bf4eba8cdb9c0a62",
+        "type": "switch",
+        "z": "f0bca268d9b1e76d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": true,
+        "outputs": 2,
+        "x": 560,
+        "y": 180,
+        "wires": [
+            [
+                "7066bac7e4bb6b27"
+            ],
+            [
+                "c978f335fb88fca1"
+            ]
+        ]
+    },
+    {
+        "id": "c978f335fb88fca1",
+        "type": "http request",
+        "z": "f0bca268d9b1e76d",
+        "name": "led of",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.208.69:8080/LED?r=0&g=0&b=0",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 770,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "15f38711299ea63f",
+        "type": "inject",
+        "z": "f0bca268d9b1e76d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 570,
+        "y": 100,
+        "wires": [
+            [
+                "7066bac7e4bb6b27"
+            ]
+        ]
+    },
+    {
+        "id": "efa310ea141096b4",
+        "type": "inject",
+        "z": "f0bca268d9b1e76d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "c978f335fb88fca1"
+            ]
+        ]
+    },
+    {
+        "id": "1e63e81d738cc56f",
+        "type": "ui_switch",
+        "z": "f0bca268d9b1e76d",
+        "name": "",
+        "label": "led on/off",
+        "tooltip": "",
+        "group": "987eaa23d27f410c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 380,
+        "y": 180,
+        "wires": [
+            [
+                "bf4eba8cdb9c0a62"
+            ]
+        ]
+    },
+    {
+        "id": "b127eac82b15d088",
+        "type": "inject",
+        "z": "f0bca268d9b1e76d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 480,
+        "wires": [
+            [
+                "2cbf37a1f7350a63"
+            ]
+        ]
+    },
+    {
+        "id": "a1f0b89ccebab181",
+        "type": "ui_chart",
+        "z": "f0bca268d9b1e76d",
+        "name": "",
+        "group": "987eaa23d27f410c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "humidity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 840,
+        "y": 480,
+        "wires": [
+            [
+                "592638eb7c8effe3"
+            ]
+        ]
+    },
+    {
+        "id": "2cbf37a1f7350a63",
+        "type": "http request",
+        "z": "f0bca268d9b1e76d",
+        "name": "get humidity",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://10.75.69.66:8084/Humidity/fb7459fa-9545-45b9-91d9-582dc08958bd/ol",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 450,
+        "y": 480,
+        "wires": [
+            [
+                "a1f0b89ccebab181",
+                "06cb3904fedee15a"
+            ]
+        ]
+    },
+    {
+        "id": "06cb3904fedee15a",
+        "type": "debug",
+        "z": "f0bca268d9b1e76d",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "592638eb7c8effe3",
+        "type": "delay",
+        "z": "f0bca268d9b1e76d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 720,
+        "y": 620,
+        "wires": [
+            [
+                "2cbf37a1f7350a63"
+            ]
+        ]
+    },
+    {
+        "id": "987eaa23d27f410c",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "598520122dee4c77",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "598520122dee4c77",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
